@@ -1,0 +1,161 @@
+/*
+ * TrcIMPLAN Central
+ */
+
+/* Global */
+
+body {
+    font-family:'Liberation Sans',Verdana,Helvetica,Arial,sans-serif;
+    font-size:10pt;
+    background-color:#DDD; }
+a,
+a:link,
+a:visited { color:#04A; text-decoration:none; }
+a:hover,
+a:focus   { color:#06D; text-decoration:none; }
+table th  { background-color:#DDD; }
+h1        { font-size:24px; }
+h2        { font-size:20px; }
+h3        { font-size:16px; }
+h4        { font-size:14px; }
+h5        { font-size:12px; }
+h6        { font-size:10px; }
+
+/* Menus colores los vinculos */
+
+.nav > li > a,
+.nav > li > a:link,
+.nav > li > a:visited { color:#444; }
+.nav > li > a:hover,
+.nav > li > a:focus   { color:#000; }
+
+.navbar-top-links li a,
+.navbar-top-links li a:link,
+.navbar-top-links li a:visited { color:#CCC; }
+.navbar-top-links li a:hover,
+.navbar-top-links li a:focus   { color:#FFF; }
+
+.navbar-static-top .navbar-header .navbar-brand,
+.navbar-static-top .navbar-header .navbar-brand:link,
+.navbar-static-top .navbar-header .navbar-brand:visited { color:#CCC; }
+.navbar-static-top .navbar-header .navbar-brand:hover,
+.navbar-static-top .navbar-header .navbar-brand:focus   { color:#FFF; }
+
+/* Menus fondos */
+
+.navbar { background-color:#DDD; }
+
+.navbar-static-top                                    { background-color:#444; }
+.navbar-static-top .navbar-header .navbar-brand:hover,
+.navbar-static-top .navbar-header .navbar-brand:focus { background-color:#666; }
+.navbar-top-links li a:hover,
+.navbar-top-links li a:focus                          { background-color:#666; }
+.navbar-top-links li a.active                         { background-color:#222; }
+
+.sidebar ul li a,
+.sidebar ul li a:link,
+.sidebar ul li a:visited { background-color:#DDD; }
+.sidebar ul li a:hover,
+.sidebar ul li a:focus   { background-color:#FFF; }
+.sidebar ul li a.active  { background-color:#BBB; }
+
+/* Contenido */
+
+#contenido { background-color:#FFF; }
+
+.page-header {
+    margin-top:0;
+    margin-bottom:20px;
+    padding-top:12px;
+    border-bottom:none; }
+
+/* Lenguetas */
+
+.nav-tabs { border-bottom:none; }
+
+ul.lenguetas > li > a,
+ul.lenguetas > li > a:link,
+ul.lenguetas > li > a:visited { color:#888; background-color:#DDD; border-color:#CCC; border-bottom:none; }
+ul.lenguetas > li > a:hover,
+ul.lenguetas > li > a:focus   { color:#000; background-color:#CCC; border-color:#444; border-bottom:none; }
+
+ul.lenguetas > li.active > a,
+ul.lenguetas > li.active > a:hover,
+ul.lenguetas > li.active > a:focus { color:#222; background-color:#FFF; border-color:#CCC; border-bottom:none; }
+
+/* Piezas de Tierra */
+
+.barra            { border:none; background-color:#FFF; margin-bottom:4px; }
+.barra-encabezado { padding:15px 0; }
+.barra-icono      { margin-right:8px; }
+.navbar-right     { margin-right:0; }
+
+.listado,
+.tren,
+.detalle,
+.formulario,
+.mapa,
+.grafica          { padding:0 8px;   border:1px solid #CCC; }
+.mensaje          { padding:8px 8px; border:1px solid #CCC; }
+
+/* Piezas de Tierra dentro de collapse */
+
+.panel-default          { border-color:#CCC; }
+.panel-body             { padding:4px; }
+.panel-body .barra,
+.panel-body .detalle,
+.panel-body .formulario,
+.panel-body .listado,
+.panel-body .mensaje,
+.panel-body .mapa,
+.panel-body .grafica,
+.panel-body .tren       { margin:4px; border:none; }
+
+/* Tablas */
+
+.table th   { background-color:#DDD; }
+.cantidad,
+.decimal,
+.dinero,
+.entero,
+.flotante,
+.porcentaje { text-align:right;  white-space:nowrap; }
+.nd         { text-align:center; background-color:#EEE; }
+
+/* Colores */
+
+.blanco      { background-color:#FFFFFF; }
+.gris        { background-color:#E5E5E5; }
+.oscuro      { background-color:#BFBFBF; }
+.rosa        { background-color:#EAD4DF; }
+.rosafuerte  { background-color:#EAA4C7; }
+.rojo        { background-color:#FFD3D3; }
+.naranja     { background-color:#FFDAAE; }
+.amarillo    { background-color:#FFFFCC; }
+.verde       { background-color:#D9FFD9; }
+.verdeoscuro { background-color:#95BC95; }
+.azul        { background-color:#DADAFF; }
+
+/* Colores para los niveles, use http://meyerweb.com/eric/tools/color-blend/ */
+.nivel1 { background-color:#CCFFCC; }
+.nivel2 { background-color:#D5F7CC; }
+.nivel3 { background-color:#DDEECC; }
+.nivel4 { background-color:#E6E6CC; }
+.nivel5 { background-color:#EEDDCC; }
+.nivel6 { background-color:#F7D5CC; }
+.nivel7 { background-color:#FFCCCC; }
+
+/*
+ * Inicia lo propio de Central
+ */
+
+/* Tablas más compactas */
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th { padding:4px; }
+
+/* Menos margen inferior en cada titulo */
+.page-header { margin-bottom:4px; }
