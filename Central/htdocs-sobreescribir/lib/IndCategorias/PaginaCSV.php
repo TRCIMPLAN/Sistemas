@@ -25,14 +25,7 @@ namespace IndCategorias;
 /**
  * Clase PaginaCSV
  */
-class PaginaCSV extends \Base\PaginaCSV {
-
-    // public $contenido;
-    // public $csv_archivo;
-    // protected $sesion;
-    // protected $sesion_exitosa;
-    // protected $usuario;
-    // protected $usuario_nombre;
+class PaginaCSV extends \Base2\PaginaCSV {
 
     /**
      * Constructor

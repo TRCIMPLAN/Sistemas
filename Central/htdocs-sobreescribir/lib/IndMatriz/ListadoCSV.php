@@ -27,16 +27,6 @@ namespace IndMatriz;
  */
 class ListadoCSV extends Listado {
 
-    // public $listado;
-    // public $cantidad_registros;
-    // public $limit;
-    // protected $offset;
-    // protected $sesion;
-    // public $categoria;
-    // public $estructura;
-    // public $tooltips;
-    // static public $param_categoria;
-
     /**
      * Constructor
      *
@@ -52,7 +42,7 @@ class ListadoCSV extends Listado {
     /**
      * CSV
      *
-     * A diferencia de ListadoHTML, esta clase puede causar una excepcion si falla la consulta
+     * Esta clase puede causar una excepcion si falla la consulta
      *
      * @return string CSV
      */
@@ -60,7 +50,7 @@ class ListadoCSV extends Listado {
         // CONSULTAR
         $this->consultar(); // PUEDE CAUSAR UNA EXCEPCION
         // INICIAR LISTADO CSV
-        $listado_csv             = new \Base\ListadoCSV();
+        $listado_csv             = new \Base2\ListadoCSV();
         $listado_csv->estructura = $this->estructura;
         $listado_csv->listado    = $this->listado;
         // ENTREGAR

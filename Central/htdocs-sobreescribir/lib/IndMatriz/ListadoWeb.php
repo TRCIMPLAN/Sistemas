@@ -1,6 +1,6 @@
 <?php
 /**
- * TrcIMPLAN Central - Categorias Listado HTML
+ * TrcIMPLAN Central - IndMatriz ListadoWeb
  *
  * Copyright (C) 2016 Guillermo Valdés Lozano
  *
@@ -20,20 +20,14 @@
  * @package TrcIMPLANCentral
  */
 
-namespace IndCategorias;
+namespace IndMatriz;
 
 /**
- * Clase ListadoHTML
+ * Clase ListadoWeb
  */
-class ListadoHTML extends Listado {
+class ListadoWeb extends Listado {
 
-    // public $listado;
-    // public $cantidad_registros;
-    // public $limit;
-    // protected $offset;
-    // protected $sesion;
-    public $viene_listado;   // SE USA EN LA PAGINA, SI ES VERDADERO DEBE MOSTRAR EL LISTADO
-    protected $estructura;
+    public $viene_listado; // SE USA EN LA PAGINA, SI ES VERDADERO DEBE MOSTRAR EL LISTADO
     protected $listado_controlado;
     protected $javascript = array();
 
@@ -43,17 +37,10 @@ class ListadoHTML extends Listado {
      * @param mixed Sesion
      */
     public function __construct(\Inicio\Sesion $in_sesion) {
-        // DEFINIR ESTRUCTURA
-        $this->estructura = array(
-            'nombre'   => array(
-                'enca'    => 'Categoría',
-                'pag'     => 'indmatriz.php',
-                'param'   => array(
-                    'categoria' => 'nombre')), // ESTO HACE EL VINCULO A indmatriz.php?categoria=Nombre
-            'cantidad' => array(
-                'enca'    => 'Cantidad'));
+        // RECIBIR FILTROS ENVIADOS POR EL URL
+        $this->categoria = $_GET[parent::$param_categoria];
         // INICIAR LISTADO CONTROLADO HTML
-        $this->listado_controlado = new \Base\ListadoControladoHTML();
+        $this->listado_controlado = new \Base2\ListadoWebControlado();
         // SU CONSTRUCTOR TOMA ESTOS PARAMETROS POR URL
         $this->limit              = $this->listado_controlado->limit;
         $this->offset             = $this->listado_controlado->offset;
@@ -66,7 +53,7 @@ class ListadoHTML extends Listado {
      * Barra
      *
      * @param  string Encabezado opcional
-     * @return mixed  Instancia de BarraHTML
+     * @return mixed  Instancia de BarraWeb
      */
     public function barra($in_encabezado='') {
         // SI VIENE EL ENCABEZADO COMO PARAMETRO
@@ -78,11 +65,11 @@ class ListadoHTML extends Listado {
             $encabezado = $this->encabezado();
         }
         // CREAR LA BARRA
-        $barra             = new \Base\BarraHTML();
+        $barra             = new \Base2\BarraWeb();
         $barra->encabezado = $encabezado;
-        $barra->icono      = $this->sesion->menu->icono_en('ind_categorias');
+        $barra->icono      = $this->sesion->menu->icono_en('ind_matriz');
         // BOTON DESCARGAR CSV
-        $barra->boton_descargar("indcategorias.csv", $this->filtros_param, '<span class="glyphicon glyphicon-floppy-save"></span> CSV');
+        $barra->boton_descargar("indmatriz.csv", $this->filtros_param, '<span class="glyphicon glyphicon-floppy-save"></span> CSV');
         // ENTREGAR LA BARRA
         return $barra;
     } // barra
@@ -98,7 +85,7 @@ class ListadoHTML extends Listado {
         try {
             $this->consultar();
         } catch (\Exception $e) {
-            $mensaje = new \Base\MensajeHTML($e->getMessage());
+            $mensaje = new \Base2\MensajeHTML($e->getMessage());
             return $mensaje->html($this->encabezado());
         }
         // PASAMOS AL LISTADO CONTROLADO HTML
@@ -138,6 +125,6 @@ class ListadoHTML extends Listado {
         }
     } // javascript
 
-} // Clase ListadoHTML
+} // Clase ListadoWeb
 
 ?>

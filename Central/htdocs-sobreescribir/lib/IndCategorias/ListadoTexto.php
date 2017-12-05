@@ -27,18 +27,6 @@ namespace IndCategorias;
  */
 class ListadoTexto extends Listado {
 
-    // public $listado;
-    // public $panal;
-    // public $cantidad_registros;
-    // public $limit;
-    // protected $offset;
-    // protected $sesion;
-    // public $categoria;
-    // public $estructura;
-    // public $tooltips;
-    // public $formatos;
-    // static public $param_categoria;
-
     /**
      * Texto
      *
@@ -52,7 +40,7 @@ class ListadoTexto extends Listado {
             return $e->getMessage();
         }
         // LISTADO TEXTO
-        $listado_texto             = new \Base\ListadoTexto();
+        $listado_texto             = new \Base2\ListadoTexto();
         $listado_texto->estructura = array(
             'nombre'   => array(
                 'enca'  => 'Categoría',

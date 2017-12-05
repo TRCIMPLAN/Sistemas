@@ -25,13 +25,7 @@ namespace IndCategorias;
 /**
  * Clase Listado
  */
-class Listado extends \Base\Listado {
-
-    // public $listado;
-    // public $cantidad_registros;
-    // public $limit;
-    // protected $offset;
-    // protected $sesion;
+class Listado extends \Base2\Listado {
 
     /**
      * Validar
@@ -89,14 +83,14 @@ class Listado extends \Base\Listado {
         }
         // TRONAR SI NO HUBO CATEGORIAS
         if (count($categorias) == 0) {
-            throw new \Base\ListadoExceptionVacio("Error en Listado de Categorías: Ningún indicador tiene categorías.");
+            throw new \Base2\ListadoExceptionVacio("Error en Listado de Categorías: Ningún indicador tiene categorías.");
         }
         // ORDEN ALFABETICO
         sort($categorias);
         // CARGAR PROPIEDAD PANAL
         foreach ($categorias as $cat) {
-            $nombre   = new \Base\Celda($cat);
-            $cantidad = new \Base\Celda($cantidades[$cat]);
+            $nombre   = new \Base2\Celda($cat);
+            $cantidad = new \Base2\Celda($cantidades[$cat]);
             $cantidad->formatear_cantidad();
             $this->panal[] = array(
                 'nombre'   => $nombre,

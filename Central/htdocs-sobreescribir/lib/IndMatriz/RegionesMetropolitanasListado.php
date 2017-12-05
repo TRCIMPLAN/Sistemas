@@ -1,8 +1,8 @@
 <?php
 /**
- * TrcIMPLAN Central - IndMatriz ListadoTexto
+ * TrcIMPLAN Central - SMILanzadera RegionesMetropolitanasListado
  *
- * Copyright (C) 2016 Guillermo Valdés Lozano
+ * Copyright (C) 2017 Guillermo Valdés Lozano
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,30 +23,25 @@
 namespace IndMatriz;
 
 /**
- * Clase ListadoTexto
+ * Clase RegionesMetropolitanasListado
+ *
+ * Consultar sólo las regiones metropolitanas
  */
-class ListadoTexto extends Listado {
+class RegionesMetropolitanasListado extends \CatRegiones\Listado {
 
     /**
-     * Texto
-     *
-     * @return string Texto
+     * Validar
      */
-    public function texto() {
-        // CONSULTAR
-        try {
-            $this->consultar();
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
-        // LISTADO TEXTO
-        $listado_texto             = new \Base2\ListadoTexto();
-        $listado_texto->estructura = $this->estructura;
-        $listado_texto->panal      = $this->panal;
-        // ENTREGAR
-        return $listado_texto->texto();
-    } // texto
+    public function validar() {
+        // Las regiones del area metropolitana son menores a 600
+        $this->nivel_desde = 1;
+        $this->nivel_hasta = 599;
+        // Siempre el estatus es en uso
+        $this->estatus = 'A';
+        // Ejecutar este mismo método en el padre
+        parent::validar();
+    } // validar
 
-} // Clase ListadoTexto
+} // Clase RegionesMetropolitanasListado
 
 ?>

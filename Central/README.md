@@ -63,3 +63,18 @@ Con este contenido, cambie USUARIO por el suyo o use la ruta correcta
     RewriteRule ^/trcimplan_central/([a-z]+)\.csv$ /home/USUARIO/Documentos/GitHub/TrcIMPLAN/Sistemas/Central/htdocs/$1.php?csv=descargar [QSA]
 
 ### Configuración de PHP 5
+
+### Enlaces a ejecutables
+
+Para ejecutar con comodidad, cree enlaces a los siguientes programas en un directorio dentro de PATH
+
+    $ cd ~/bin
+    $ ln -s ../Documentos/GitHub/TrcIMPLAN/Sistemas/Central/htdocs/bin/CrearSMI.php
+    $ ln -s ../Documentos/GitHub/TrcIMPLAN/Sistemas/Central/htdocs/bin/CrearSIG.php
+    $ ln -s ../Documentos/GitHub/TrcIMPLAN/Sistemas/Central/htdocs/bin/AlimentarOrganizador.php
+    $ ln -s ../Documentos/GitHub/TrcIMPLAN/Sistemas/Central/htdocs/bin/CrearPublicacionesRelacionadas.php
+    $ ln -s ../Documentos/GitHub/TrcIMPLAN/Sistemas/Central/htdocs/bin/CrearIBC.php
+
+La Plataforma del Conocimiento no está en este repositorio. Haga un acceso directo a Crear.php
+
+    $ ln -s ../Documentos/GitHub/TrcIMPLAN/trcimplan.github.io/bin/Crear.php

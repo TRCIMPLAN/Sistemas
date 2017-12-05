@@ -28,7 +28,7 @@ if ($_GET['csv'] != '') {
     echo $pagina_csv->csv();
 } else {
     // Mostrar la página HTML
-    $pagina_html = new \IndCategorias\PaginaHTML();
+    $pagina_html = new \IndCategorias\PaginaWeb();
     echo $pagina_html->html();
 }
 
