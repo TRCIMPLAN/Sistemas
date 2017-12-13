@@ -67,7 +67,7 @@ class Celda {
                 if (array_key_exists($this->valor, $this->descripciones)) {
                     $formateado = $this->descripciones[$this->valor];
                 } else {
-                    $formateado = '¿'.$this->valor.'?';
+                    $formateado = 'ND';
                 }
                 break;
             case 'decimal':

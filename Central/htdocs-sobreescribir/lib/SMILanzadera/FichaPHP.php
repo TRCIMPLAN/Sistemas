@@ -101,20 +101,32 @@ class FichaPHP extends Ficha {
     private function datos_php() {
         // Iniciar arreglo para acumular
         $r = array();
+        // Estadística
+        $f = 0;
+        $v = 0;
+        $c = 0;
         // Armar
         foreach ($this->indicador_datos->panal as $renglon) {
             $a = array();
             foreach ($this->indicador_datos->estructura as $columna => $param) {
-                if (($renglon[$columna] instanceof Celda) && ($renglon[$columna]->valor != '')) {
-                    $a[] = sprintf("'%s' => '%s'", $columna, $renglon[$columna]->valor);
+                if ($renglon[$columna] instanceof Celda) {
+                    if ($renglon[$columna]->formato == 'caracter') {
+                        $a[] = sprintf("'%s' => '%s'", $columna, $renglon[$columna]->formatear());
+                        $f++;
+                    } else {
+                        $a[] = sprintf("'%s' => '%s'", $columna, $renglon[$columna]->valor);
+                        $v++;
+                    }
                 } elseif ($renglon[$columna] != '') {
                     $a[] = sprintf("'%s' => '%s'", $columna, $renglon[$columna]);
+                    $c++;
                 }
             }
             $r[] = sprintf("array(%s)", implode(', ', $a));
         }
         // Entregar
-        return sprintf("        return array(\n            %s);", implode(",\n            ", $r));
+        $estadistica = "formateado $f, valor $v, crudo $c";
+        return sprintf("        return array(\n            %s); // %s", implode(",\n            ", $r), $estadistica);
     } // datos_php
 
     /**
@@ -160,8 +172,12 @@ class FichaPHP extends Ficha {
             foreach ($this->indicador_otras_regiones->panal as $renglon) {
                 $a = array();
                 foreach ($this->indicador_otras_regiones->estructura as $columna => $param) {
-                    if (($renglon[$columna] instanceof Celda) && ($renglon[$columna]->valor != '')) {
-                        $a[] = sprintf("'%s' => '%s'", $columna, $renglon[$columna]->valor);
+                    if ($renglon[$columna] instanceof Celda) {
+                        if ($renglon[$columna]->formato == 'caracter') {
+                            $a[] = sprintf("'%s' => '%s'", $columna, $renglon[$columna]->formatear());
+                        } else {
+                            $a[] = sprintf("'%s' => '%s'", $columna, $renglon[$columna]->valor);
+                        }
                     } elseif ($renglon[$columna] != '') {
                         $a[] = sprintf("'%s' => '%s'", $columna, $renglon[$columna]);
                     }
