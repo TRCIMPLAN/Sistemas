@@ -55,6 +55,7 @@ class CategoriaPHP {
         'Infraestructura'                              => '../imagenes/categorias/infraestructura.jpg',
         'Innovación'                                   => '../imagenes/categorias/innovacion.jpg',
         'Macroeconomía'                                => '../imagenes/categorias/macroeconomia.jpg',
+        'Medio Ambiente'                               => '../imagenes/categorias/medio-ambiente.jpg',
         'Mercados'                                     => '../imagenes/categorias/mercados.jpg',
         'Movilidad'                                    => '../imagenes/categorias/movilidad.jpg',
         'Objetivos del Milenio'                        => '../imagenes/categorias/objetivos-del-milenio.jpg',
