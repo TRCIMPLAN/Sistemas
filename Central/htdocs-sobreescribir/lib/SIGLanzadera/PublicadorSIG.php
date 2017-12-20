@@ -40,7 +40,7 @@ class PublicadorSIG extends Publicador {
      */
     public function publicar() {
         // Consultar las regiones metropolitanas
-        $regiones = new \IndSMI2b\RegionesMetropolitanasListado($this->sesion);
+        $regiones = new RegionesMetropolitanasListado($this->sesion);
         $regiones->consultar();
         // Bucle por las regiones
         foreach ($regiones->listado as $r) {
