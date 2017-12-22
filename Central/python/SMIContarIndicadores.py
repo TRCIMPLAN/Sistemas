@@ -2,7 +2,7 @@
 # coding: utf-8
 
 #
-# Contar Indicadores
+# SMIContarIndicadores.py
 #
 # Cuenta la cantidad de indicadores de cada eje y calcula un gran total
 #
@@ -27,17 +27,19 @@ import psycopg2  # Adaptador para la BD PostgreSQL       https://pypi.python.org
 import sys       # Estándar de término usado en sys.exit https://docs.python.org/3.4/library/sys.html
 
 # Definir constantes sobre la BD
-bd_nombre  = "trcimplan_central"
+bd_nombre = "trcimplan_central"
 bd_usuario = "trcimplan"
+bd_contrasena = "loquesea"
 
 # Definir conector a la BD
 conexion = None
 
 try:
+    print("Contar Indicadores")
     # Puntero a la BD
-    conexion = psycopg2.connect("host=127.0.0.1 dbname='%s' user='%s' password='loquesea'" % (bd_nombre, bd_usuario,))
+    conexion = psycopg2.connect("host=127.0.0.1 dbname='%s' user='%s' password='%s'" % (bd_nombre, bd_usuario, bd_contrasena))
     cursor   = conexion.cursor()
-    # Definir total de inicio en cero
+    # Iniciar acumulador
     total = 0
     # Consultar los ejes
     cursor.execute(" SELECT id, nom_corto FROM ind_subindices WHERE estatus = 'A' ORDER BY nom_corto ASC")
