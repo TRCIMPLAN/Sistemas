@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+# coding: utf-8
 
 #
 # SMICrearDatosAbiertos.py
@@ -27,7 +27,8 @@ _re_no_permitidos = re.compile(r'[^ a-zA-Z0-9(),.]') # Sólo permite espacio, nu
 
 def convertir_texto_a_mayusculas(texto):
     """ Convertir texto a mayúsculas sin acentos """
-    sin_tildes      = ''.join((c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn'))
+    texto_unicode = unicode(texto, "utf-8")
+    sin_tildes      = ''.join((c for c in unicodedata.normalize('NFD', texto_unicode) if unicodedata.category(c) != 'Mn'))
     solo_permitidos = _re_no_permitidos.sub(' ', sin_tildes) # eliminar_no_permitidos(sin_tildes)
     return solo_permitidos.upper()
 
@@ -135,7 +136,6 @@ def escribir_md(consulta, destino):
 
 def main(args):
     print("SMI Datos Abiertos")
-    print()
     try:
         consulta = consultar()
         mostrar(consulta)
