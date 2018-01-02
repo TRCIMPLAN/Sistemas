@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-# coding: utf-8
-
+# -*- coding: utf-8 -*-
 #
 # SMIContarIndicadores.py
 #
 # Cuenta la cantidad de indicadores de cada eje y calcula un gran total
 #
-# Copyright (C) 2017 Guillermo Valdes Lozano guillermo@movimientolibre.com
+# Copyright (C) 2017 Guillermo Valdes Lozano <guillermo@movimientolibre.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,6 +21,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+
 # Liberías
 import psycopg2  # Adaptador para la BD PostgreSQL       https://pypi.python.org/pypi/psycopg2
 import sys       # Estándar de término usado en sys.exit https://docs.python.org/3.4/library/sys.html
@@ -33,6 +33,7 @@ bd_contrasena = "loquesea"
 
 # Definir conector a la BD
 conexion = None
+
 
 try:
     print("Contar Indicadores")
