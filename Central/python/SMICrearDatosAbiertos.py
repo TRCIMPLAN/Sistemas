@@ -23,6 +23,8 @@
 import csv
 import datetime
 import re
+import psycopg2
+import psycopg2.extras
 import unicodedata
 import sys
 
@@ -40,8 +42,6 @@ def convertir_texto_a_mayusculas(texto):
 class BaseDatos:
 
     def __init__(self):
-        import psycopg2
-        import psycopg2.extras
         self.conexion = psycopg2.connect("host=127.0.0.1 dbname='{0}' user='{1}' password='{2}'".format('trcimplan_central', 'trcimplan', 'loquesea'))
         self.cursor = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
         self.prueba = 777
@@ -102,7 +102,7 @@ class DatosAbiertos(BaseDatos):
         print("  Escribí archivo CSV {0}".format(destino))
 
 
-class DatosAbiertosAdicionales(BaseDatos):
+class DatosAbiertosDescripciones(BaseDatos):
 
     def consultar(self):
         self.cursor.execute("""
@@ -170,6 +170,7 @@ def escribir_md(cantidad, destino):
         f.write("<li>La primera línea tiene los nombres de las columnas.</li>\n")
         f.write("<li>En mayúsculas y sin acentos.</li>\n")
         f.write("<li>Cantidad de filas: <b>{:,}.</b></li>\n".format(cantidad))
+        f.write("<li>Adicionalmente, <a href=\"trcimplan-smi-descripciones.csv\">descargue las descripciones y notas de los indicadores.</a></li>\n")
         f.write("<li>Elaboración: <b>{0}.</b></li>\n".format(elaboracion.strftime("%d/%m/%y %H:%M")))
         f.write("</ul>\n")
         f.write("</div>\n")
@@ -211,10 +212,10 @@ def main(args):
             #~da.mostrar()
             da.escribir_csv('../htdocs/bin/trcimplan.github.io/smi/trcimplan-smi.csv')
             cantidad = da.cantidad()
-        with DatosAbiertosAdicionales() as daa:
-            daa.consultar()
-            #~daa.mostrar()
-            daa.escribir_csv('../htdocs/bin/trcimplan.github.io/smi/trcimplan-smi-adicionales.csv')
+        with DatosAbiertosDescripciones() as dad:
+            dad.consultar()
+            #~dad.mostrar()
+            dad.escribir_csv('../htdocs/bin/trcimplan.github.io/smi/trcimplan-smi-descripciones.csv')
         escribir_md(cantidad, '../htdocs/bin/trcimplan.github.io/lib/SMI/DatosAbiertos.md')
         return(0)
     except Exception as e:
