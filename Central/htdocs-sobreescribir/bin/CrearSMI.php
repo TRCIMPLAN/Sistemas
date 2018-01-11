@@ -3,7 +3,7 @@
 /**
  * TrcIMPLAN Central - Crear SMI
  *
- * Copyright (C) 2017 Guillermo Valdes Lozano guillermo@movimientolibre.com
+ * Copyright (C) 2017 Guillermo Valdes Lozano guivaloz@movimientolibre.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -88,7 +88,13 @@ try {
 }
 
 // Ejecutar SMI datos abiertos
-// Ahora es un script de python
+$ultima_linea = exec('cd ../../python; ./SMICrearDatosAbiertos.py', $salida, $resultado);
+if ($resultado == $EXITO) {
+    echo implode("\n", $salida)."\n";
+} else {
+    echo implode("\n", $salida)."\n";
+    exit($E_FATAL);
+}
 
 // Mensaje de término
 echo "$soy Terminó\n";

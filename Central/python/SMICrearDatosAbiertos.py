@@ -3,7 +3,7 @@
 #
 # SMICrearDatosAbiertos.py
 #
-# Copyright (C) 2017 Guillermo Valdes Lozano <guillermo@movimientolibre.com>
+# Copyright (C) 2018 Guillermo Valdes Lozano <guivaloz@movimientolibre.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -33,7 +33,8 @@ _re_no_permitidos = re.compile(r'[^ a-zA-Z0-9(),.]') # Sólo permite espacio, nu
 
 def convertir_texto_a_mayusculas(texto):
     """ Convertir texto a mayúsculas sin acentos """
-    texto_unicode = unicode(texto, "utf-8")
+    #~ texto_unicode = unicode(texto, "utf-8") # Necesario en Python versión 2
+    texto_unicode = texto
     sin_tildes = ''.join((c for c in unicodedata.normalize('NFD', texto_unicode) if unicodedata.category(c) != 'Mn'))
     solo_permitidos = _re_no_permitidos.sub(' ', sin_tildes) # eliminar_no_permitidos(sin_tildes)
     return solo_permitidos.upper()

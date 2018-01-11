@@ -3,7 +3,7 @@
 /**
  * TrcIMPLAN Central - Crear IBC
  *
- * Copyright (C) 2017 Guillermo Valdes Lozano guillermo@movimientolibre.com
+ * Copyright (C) 2017 Guillermo Valdes Lozano guivaloz@movimientolibre.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
